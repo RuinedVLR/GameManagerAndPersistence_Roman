@@ -29,4 +29,15 @@ public class UIManager : MonoBehaviour
         CloseAllUI();
         _levelSelectCanvas.SetActive(true);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void OpenLevel(int levelIndex)
+    {
+        // Load the selected level
+        UnityEngine.SceneManagement.SceneManager.LoadScene(levelIndex);
+    }
 }

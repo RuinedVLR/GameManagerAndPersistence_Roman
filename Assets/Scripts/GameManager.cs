@@ -1,9 +1,15 @@
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public int _currentLevel;
+    public int _health;
+    public int _score;
+    public int _xp;
+    
     void Awake()
     {
         if (Instance == null)
@@ -13,7 +19,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            
+            Destroy(gameObject);
         }
     }
 
