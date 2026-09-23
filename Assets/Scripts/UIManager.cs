@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -35,9 +36,24 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void Continue()
+    {
+        if (GameManager.Instance._currentLevelIndx != 0)
+            SceneManager.LoadScene(GameManager.Instance._currentLevelIndx);
+        else
+            SceneManager.LoadScene(1);
+
+        GameManager.Instance._inGame = true;
+        GameManager.Instance.SaveGame();
+    }
+
     public void OpenLevel(int levelIndex)
     {
         // Load the selected level
-        UnityEngine.SceneManagement.SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(levelIndex);
+
+        GameManager.Instance._currentLevelIndx = levelIndex;
+        GameManager.Instance._inGame = true;
+        GameManager.Instance.SaveGame();
     }
 }
