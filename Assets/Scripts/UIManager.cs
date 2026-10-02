@@ -56,4 +56,14 @@ public class UIManager : MonoBehaviour
         GameManager.Instance._inGame = true;
         GameManager.Instance.SaveGame();
     }
+
+    public void ResetProgress()
+    {
+        GameManager.Instance._currentLevelIndx = 1;
+        GameManager.Instance._health = 100;
+        GameManager.Instance._score = 0;
+        GameManager.Instance._xp = 0;
+        GameManager.Instance._inGame = false;
+        GameManager.Instance.SaveGame();
+    }
 }
